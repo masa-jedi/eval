@@ -13,6 +13,7 @@ if uploaded_file is not None:
     # select rows for each qna
     qna = df.loc[df["request_id"] == request_id]
 
+    topic = st.sidebar.header(qna["topic"].iloc[0])
     context = st.sidebar.text_area(label="context", value=qna["context"].iloc[0], height=1000)
 
     list_of_questions = qna["question"].unique().tolist()
