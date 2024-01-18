@@ -6,10 +6,8 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
     df = pd.read_csv(uploaded_file)
-
-    st.write("Available ID")
+    
     unique_qna_id = df["request_id"].unique().tolist()
-    # st.write()
 
     request_id = st.select_slider('Request ID', options=unique_qna_id)
     
